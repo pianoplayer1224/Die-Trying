@@ -1,0 +1,454 @@
+[gd_scene format=3 uid="uid://damuegsi06tba"]
+
+[ext_resource type="Script" uid="uid://b1cg5bsr7vtgp" path="res://scripts/main.gd" id="1_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://d0f82tgv8ycq6" path="res://scenes/dice_d_20.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://o0v835facw82" path="res://scenes/dice_d_12.tscn" id="3_tipki"]
+[ext_resource type="PackedScene" uid="uid://dxuoc3j835h2k" path="res://scenes/dice_d_10.tscn" id="4_85g3d"]
+[ext_resource type="PackedScene" uid="uid://dml86ric412to" path="res://scenes/dice_d_8.tscn" id="5_choun"]
+[ext_resource type="PackedScene" uid="uid://blekckbmwthpu" path="res://scenes/dice_d_6.tscn" id="6_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://dgjlftq64lwo3" path="res://scenes/dice_d_4.tscn" id="7_eb6dy"]
+[ext_resource type="PackedScene" uid="uid://d2djsqsqyethk" path="res://scenes/dice_d_2.tscn" id="8_trceg"]
+[ext_resource type="FontFile" uid="uid://de3xsvnnj3o4l" path="res://assets/Fonts/fredoka-one.one-regular.ttf" id="9_85g3d"]
+[ext_resource type="FontFile" uid="uid://dwocr743r02nq" path="res://assets/Fonts/fredoka-one.dingbats.ttf" id="10_eb6dy"]
+[ext_resource type="AudioStream" uid="uid://duf0111fetvit" path="res://assets/Audio/kaching-sound-fx.mp3" id="10_ya4ey"]
+[ext_resource type="Texture2D" uid="uid://cpht0wk6qqkfn" path="res://assets/images/8c408b35a182d47243483ea85f6d752b-removebg-preview.png" id="12_eb6dy"]
+[ext_resource type="AudioStream" uid="uid://c1y044y3jb8mm" path="res://assets/Audio/win-sound-effect.mp3" id="13_trceg"]
+
+[sub_resource type="Theme" id="Theme_85g3d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sqs10"]
+bg_color = Color(0.14117648, 0.08627451, 0.03529412, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jbpan"]
+bg_color = Color(0.78039217, 0.8, 0.827451, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+shadow_size = 10
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a8y0u"]
+bg_color = Color(0.5254902, 0.5529412, 0.5921569, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+shadow_size = 5
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_85g3d"]
+bg_color = Color(0.84335876, 0.85778433, 0.8779915, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+shadow_size = 10
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ld40"]
+bg_color = Color(0.12941177, 0.08235294, 0.02745098, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+shadow_size = 5
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jkv2x"]
+bg_color = Color(0.5254902, 0.5529412, 0.5921569, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+shadow_size = 5
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ya4ey"]
+bg_color = Color(0.84313726, 0.85882354, 0.8784314, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+shadow_size = 10
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gqmmt"]
+bg_color = Color(0.12941177, 0.08235294, 0.02745098, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+shadow_size = 5
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jbj1t"]
+bg_color = Color(0.5254902, 0.5529412, 0.5921569, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+shadow_size = 5
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eb6dy"]
+bg_color = Color(0.84313726, 0.85882354, 0.8784314, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+shadow_size = 10
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yc10j"]
+bg_color = Color(0.12941177, 0.08235294, 0.02745098, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+shadow_size = 5
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_muem4"]
+bg_color = Color(0.5254902, 0.5529412, 0.5921569, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+shadow_size = 5
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_trceg"]
+bg_color = Color(0.84313726, 0.85882354, 0.8784314, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+shadow_size = 10
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jscy8"]
+bg_color = Color(0.12941177, 0.08235294, 0.02745098, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+shadow_size = 5
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dp3eg"]
+bg_color = Color(0.14117648, 0.08627451, 0.03529412, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_og1vs"]
+bg_color = Color(0.14117648, 0.08627451, 0.03529412, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2wyq8"]
+bg_color = Color(0.14117648, 0.08627451, 0.03529412, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pm3ni"]
+bg_color = Color(0.14117648, 0.08627451, 0.03529412, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 12
+shadow_size = 3
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y6deb"]
+bg_color = Color(0.8784314, 0.59607846, 0.18431373, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 3
+shadow_offset = Vector2(0, 1)
+
+[node name="Main" type="Control" unique_id=1579343137]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = SubResource("Theme_85g3d")
+script = ExtResource("1_0wfyh")
+
+[node name="Panel top" type="Panel" parent="." unique_id=1034133831]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_top = -32.0
+offset_bottom = 130.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sqs10")
+
+[node name="Panel bottom" type="Panel" parent="." unique_id=404031177]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -50.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_sqs10")
+
+[node name="Dice d20" parent="." unique_id=922202071 instance=ExtResource("1_o5qli")]
+z_index = 1
+position = Vector2(550, 500)
+scale = Vector2(1.5, 1.5)
+
+[node name="Dice d12" parent="." unique_id=526103462 instance=ExtResource("3_tipki")]
+z_index = 1
+position = Vector2(550, 500)
+scale = Vector2(1.5, 1.5)
+
+[node name="Dice d10" parent="." unique_id=936442920 instance=ExtResource("4_85g3d")]
+z_index = 1
+position = Vector2(550, 500)
+scale = Vector2(1.5, 1.5)
+
+[node name="Dice d8" parent="." unique_id=249703387 instance=ExtResource("5_choun")]
+z_index = 1
+position = Vector2(550, 500)
+scale = Vector2(1.5, 1.5)
+
+[node name="Dice d6" parent="." unique_id=828081886 instance=ExtResource("6_ya4ey")]
+z_index = 1
+position = Vector2(550, 500)
+scale = Vector2(1.5, 1.5)
+
+[node name="Dice d4" parent="." unique_id=1836508455 instance=ExtResource("7_eb6dy")]
+z_index = 1
+position = Vector2(550, 500)
+scale = Vector2(1.5, 1.5)
+
+[node name="Dice d2" parent="." unique_id=381472364 instance=ExtResource("8_trceg")]
+z_index = 1
+position = Vector2(550, 500)
+scale = Vector2(1.5, 1.5)
+
+[node name="Container upg" type="VBoxContainer" parent="." unique_id=4673701]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -800.0
+offset_top = -720.0
+offset_right = -100.0
+offset_bottom = -170.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 20
+
+[node name="Button upg dice" type="Button" parent="Container upg" unique_id=1898085953]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_85g3d")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_jbpan")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_a8y0u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_85g3d")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_0ld40")
+text = "upgrade dice"
+
+[node name="Button upg speed" type="Button" parent="Container upg" unique_id=1262686401]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_85g3d")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_jbpan")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jkv2x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ya4ey")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_gqmmt")
+text = "upgrade speed"
+
+[node name="Button upg money" type="Button" parent="Container upg" unique_id=200996826]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_85g3d")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_jbpan")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jbj1t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_eb6dy")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_yc10j")
+text = "upgrade mon mult"
+
+[node name="Button upg match" type="Button" parent="Container upg" unique_id=2048137061]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_85g3d")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_jbpan")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_muem4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_trceg")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_jscy8")
+text = "upgrade mat mult"
+
+[node name="Button exit" type="Button" parent="." unique_id=891920036]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 100.0
+offset_top = 25.0
+offset_right = 65.0
+offset_bottom = 92.0
+theme_override_colors/font_color = Color(0.8784314, 0.59607846, 0.18431373, 1)
+theme_override_colors/font_pressed_color = Color(0.69014704, 0.4582227, 0.1055064, 1)
+theme_override_colors/font_hover_color = Color(0.93402493, 0.6453114, 0.25071108, 1)
+theme_override_fonts/font = ExtResource("10_eb6dy")
+theme_override_font_sizes/font_size = 92
+theme_override_styles/normal = SubResource("StyleBoxFlat_dp3eg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_og1vs")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2wyq8")
+text = "M"
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1819660280]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = -230.0
+offset_right = 1000.0
+offset_bottom = -190.0
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_pm3ni")
+theme_override_styles/fill = SubResource("StyleBoxFlat_y6deb")
+value = 50.0
+show_percentage = false
+
+[node name="Label progress" type="Label" parent="." unique_id=1440920419]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 500.0
+offset_top = -230.0
+offset_right = 600.0
+offset_bottom = -190.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("9_85g3d")
+theme_override_font_sizes/font_size = 24
+text = "0/0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label add progress" type="Label" parent="." unique_id=1066042039]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 500.0
+offset_top = -190.0
+offset_right = 600.0
+offset_bottom = -150.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("9_85g3d")
+theme_override_font_sizes/font_size = 20
+text = "+0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label money" type="Label" parent="." unique_id=1691777106]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -400.0
+offset_top = -10.0
+offset_right = -100.0
+offset_bottom = 120.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0.8784314, 0.59607846, 0.18431373, 1)
+theme_override_fonts/font = ExtResource("9_85g3d")
+theme_override_font_sizes/font_size = 64
+text = "$0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Label add money" type="Label" parent="." unique_id=1542543470]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -400.0
+offset_top = 90.0
+offset_right = -115.0
+offset_bottom = 120.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0.8784314, 0.59607846, 0.18431373, 1)
+theme_override_fonts/font = ExtResource("9_85g3d")
+theme_override_font_sizes/font_size = 24
+text = "+$0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Label match" type="Label" parent="." unique_id=264342559]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -462.0
+offset_top = 236.0
+offset_right = -359.0
+offset_bottom = 259.00003
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("9_85g3d")
+theme_override_font_sizes/font_size = 32
+text = "Match x0 (x0)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label upgrade" type="Label" parent="." unique_id=433496377]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -768.0
+offset_top = -780.0
+offset_right = -500.0
+offset_bottom = -720.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.7204674, 0.7204675, 0.7204674, 1)
+theme_override_fonts/font = ExtResource("9_85g3d")
+theme_override_font_sizes/font_size = 32
+text = "UPGRADES"
+
+[node name="Sprite win" type="Sprite2D" parent="." unique_id=887333110]
+z_index = 2
+position = Vector2(960, 540)
+texture = ExtResource("12_eb6dy")
+
+[node name="Audio-buy" type="AudioStreamPlayer" parent="." unique_id=39684070]
+stream = ExtResource("10_ya4ey")
+
+[node name="Audio-win" type="AudioStreamPlayer" parent="." unique_id=1515933230]
+stream = ExtResource("13_trceg")
+volume_db = 5.0
+
+[connection signal="pressed" from="Button exit" to="." method="_on_button_exit_pressed"]

@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://d2djsqsqyethk"]
+
+[ext_resource type="Script" uid="uid://d2jsxl0opccon" path="res://scripts/dice.gd" id="1_pyd0o"]
+[ext_resource type="Texture2D" uid="uid://dpfu5pnv8hy2c" path="res://assets/Dice/d2/d2_white_1.png" id="1_xu6wq"]
+[ext_resource type="Texture2D" uid="uid://b16el761qdpt4" path="res://assets/Dice/d2/d2_white_2.png" id="2_pyd0o"]
+[ext_resource type="AudioStream" uid="uid://dy3efjd07kfcr" path="res://assets/Audio/tick-2.mp3" id="4_wt6xy"]
+[ext_resource type="AudioStream" uid="uid://blgmdcok20y64" path="res://assets/Audio/pop-win.mp3" id="5_fa5wo"]
+[ext_resource type="AudioStream" uid="uid://cmpsct1g7bb0n" path="res://assets/Audio/fail-sound-effect.mp3" id="6_7ivrb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gyamk"]
+radius = 135.0
+
+[node name="Dice d2" type="StaticBody2D" unique_id=381472364 groups=["DiceGroup"]]
+input_pickable = true
+script = ExtResource("1_pyd0o")
+
+[node name="Faces" type="Node2D" parent="." unique_id=2097843978]
+
+[node name="1" type="Sprite2D" parent="Faces" unique_id=684530251]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_xu6wq")
+
+[node name="2" type="Sprite2D" parent="Faces" unique_id=624218169]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_pyd0o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1952497208]
+shape = SubResource("CircleShape2D_gyamk")
+
+[node name="Audio-tick" type="AudioStreamPlayer" parent="." unique_id=984566494]
+stream = ExtResource("4_wt6xy")
+
+[node name="Audio-roll" type="AudioStreamPlayer" parent="." unique_id=925251164]
+stream = ExtResource("5_fa5wo")
+volume_db = -5.0
+
+[node name="Audio-bust" type="AudioStreamPlayer" parent="." unique_id=1902501521]
+stream = ExtResource("6_7ivrb")
+
+[node name="d2 shadow" type="Sprite2D" parent="." unique_id=965951900]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(5, 5)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_pyd0o")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

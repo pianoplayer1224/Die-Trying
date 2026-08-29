@@ -1,0 +1,249 @@
+[gd_scene format=3 uid="uid://k7rkh5qp4v1p"]
+
+[ext_resource type="FontFile" uid="uid://de3xsvnnj3o4l" path="res://assets/Fonts/fredoka-one.one-regular.ttf" id="1_jaeev"]
+[ext_resource type="Script" uid="uid://blryhgh7k1ihw" path="res://scripts/start.gd" id="1_u80x2"]
+[ext_resource type="PackedScene" uid="uid://c1vx0hi201ok6" path="res://scenes/dice_d_20_menu.tscn" id="3_bodal"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ewcy1"]
+bg_color = Color(0.14117648, 0.08627451, 0.03529412, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u80x2"]
+bg_color = Color(0.78039217, 0.8, 0.827451, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+shadow_size = 10
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bodal"]
+bg_color = Color(0.5254902, 0.5529412, 0.5921569, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+shadow_size = 5
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kdmts"]
+bg_color = Color(0.84335876, 0.85778433, 0.8779915, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+shadow_size = 10
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0auqf"]
+bg_color = Color(0.12941177, 0.08235294, 0.02745098, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+shadow_size = 5
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y16t7"]
+bg_color = Color(0.9843137, 0.7529412, 0.1764706, 1)
+shadow_size = 5
+
+[node name="start" type="Control" unique_id=1428719548]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u80x2")
+
+[node name="Panel top" type="Panel" parent="." unique_id=379824962]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_top = -32.0
+offset_bottom = 130.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ewcy1")
+
+[node name="Panel bottom" type="Panel" parent="." unique_id=623768067]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -50.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ewcy1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1499633817]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -40.0
+offset_right = 300.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Button start" type="Button" parent="VBoxContainer" unique_id=1779860482]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_jaeev")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_u80x2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bodal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kdmts")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_0auqf")
+text = "Start"
+
+[node name="Button options" type="Button" parent="VBoxContainer" unique_id=437548526]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_jaeev")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_u80x2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bodal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kdmts")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_0auqf")
+text = "Options"
+
+[node name="Button help" type="Button" parent="VBoxContainer" unique_id=1198867149]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_jaeev")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_u80x2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bodal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kdmts")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_0auqf")
+text = "Help"
+
+[node name="Button quit" type="Button" parent="VBoxContainer" unique_id=1538751426]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_jaeev")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_u80x2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bodal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kdmts")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_0auqf")
+text = "Quit"
+
+[node name="Label title" type="Label" parent="." unique_id=1004278421]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -400.0
+offset_right = 500.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.8784314, 0.59607846, 0.18431373, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/shadow_outline_size = 16
+theme_override_fonts/font = ExtResource("1_jaeev")
+theme_override_font_sizes/font_size = 144
+text = "DIE TRYING"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TLOG" type="Label" parent="." unique_id=1412957777]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 9.0
+offset_top = 349.09003
+offset_right = 118.91504
+offset_bottom = 372.09003
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.117254816
+scale = Vector2(1.2657636, 1.2657636)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_y16t7")
+text = "SEE T/LOG"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="INOP" type="Label" parent="." unique_id=1070782704]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 12.0
+offset_top = 322.0901
+offset_right = 74.59204
+offset_bottom = 345.0901
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.16598426
+scale = Vector2(1.2657636, 1.2657636)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_y16t7")
+text = "INOP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="." unique_id=27993638]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -320.0
+offset_right = 200.0
+offset_bottom = -250.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.7204674, 0.7204675, 0.7204674, 1)
+theme_override_fonts/font = ExtResource("1_jaeev")
+theme_override_font_sizes/font_size = 28
+text = "REACH THE GOAL OR"
+horizontal_alignment = 1
+
+[node name="Dice d20 menu" parent="." unique_id=1725534021 instance=ExtResource("3_bodal")]
+position = Vector2(400, 425)
+rotation = -0.17453292
+scale = Vector2(0.8, 0.8)
+
+[connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="pressed" from="VBoxContainer/Button start" to="." method="_on_button_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button options" to="." method="_on_button_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button help" to="." method="_on_button_help_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button quit" to="." method="_on_button_quit_pressed"]

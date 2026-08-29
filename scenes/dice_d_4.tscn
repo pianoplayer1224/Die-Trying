@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://dgjlftq64lwo3"]
+
+[ext_resource type="Script" uid="uid://d2jsxl0opccon" path="res://scripts/dice.gd" id="1_rnja8"]
+[ext_resource type="Texture2D" uid="uid://clkq06gyv4tse" path="res://assets/Dice/d4/d4_green_1.png" id="1_rp8gp"]
+[ext_resource type="Texture2D" uid="uid://da05vapr4a323" path="res://assets/Dice/d4/d4_green_2.png" id="2_rnja8"]
+[ext_resource type="Texture2D" uid="uid://d2h7m1hgboalv" path="res://assets/Dice/d4/d4_green_3.png" id="3_84tl4"]
+[ext_resource type="Texture2D" uid="uid://c32fpxex7kyt3" path="res://assets/Dice/d4/d4_green_4.png" id="4_yaiy4"]
+[ext_resource type="AudioStream" uid="uid://dy3efjd07kfcr" path="res://assets/Audio/tick-2.mp3" id="6_48d1b"]
+[ext_resource type="AudioStream" uid="uid://blgmdcok20y64" path="res://assets/Audio/pop-win.mp3" id="7_8jft3"]
+[ext_resource type="AudioStream" uid="uid://cmpsct1g7bb0n" path="res://assets/Audio/fail-sound-effect.mp3" id="8_csk2h"]
+
+[node name="Dice d4" type="StaticBody2D" unique_id=1836508455 groups=["DiceGroup"]]
+input_pickable = true
+script = ExtResource("1_rnja8")
+
+[node name="Faces" type="Node2D" parent="." unique_id=22966188]
+
+[node name="1" type="Sprite2D" parent="Faces" unique_id=1647734099]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_rp8gp")
+
+[node name="2" type="Sprite2D" parent="Faces" unique_id=400722405]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_rnja8")
+
+[node name="3" type="Sprite2D" parent="Faces" unique_id=738419609]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_84tl4")
+
+[node name="4" type="Sprite2D" parent="Faces" unique_id=1933698030]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_yaiy4")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=798940245]
+scale = Vector2(1.1, 1.1)
+polygon = PackedVector2Array(0, -135, -134, 129, 134, 129)
+
+[node name="Audio-tick" type="AudioStreamPlayer" parent="." unique_id=1588950162]
+stream = ExtResource("6_48d1b")
+
+[node name="Audio-roll" type="AudioStreamPlayer" parent="." unique_id=2012260135]
+stream = ExtResource("7_8jft3")
+volume_db = -5.0
+
+[node name="Audio-bust" type="AudioStreamPlayer" parent="." unique_id=879591746]
+stream = ExtResource("8_csk2h")
+
+[node name="d4 shadow" type="Sprite2D" parent="." unique_id=936908683]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(5, 5)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_yaiy4")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

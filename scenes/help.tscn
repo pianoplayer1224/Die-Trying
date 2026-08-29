@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://bolauf4jprfrc"]
+
+[ext_resource type="Script" uid="uid://c7dqr70q2ty16" path="res://scripts/help.gd" id="1_50phg"]
+[ext_resource type="FontFile" uid="uid://dwocr743r02nq" path="res://assets/Fonts/fredoka-one.dingbats.ttf" id="1_ci552"]
+[ext_resource type="FontFile" uid="uid://de3xsvnnj3o4l" path="res://assets/Fonts/fredoka-one.one-regular.ttf" id="3_chmrd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_72ibk"]
+bg_color = Color(0.14117648, 0.08627451, 0.03529412, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_50phg"]
+bg_color = Color(0.14117648, 0.08627451, 0.03529412, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_chmrd"]
+bg_color = Color(0.14117648, 0.08627451, 0.03529412, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2by0i"]
+bg_color = Color(0.14117648, 0.08627451, 0.03529412, 1)
+
+[node name="Help" type="Control" unique_id=612933275]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_50phg")
+
+[node name="Panel top" type="Panel" parent="." unique_id=287521323]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_top = -32.0
+offset_bottom = 130.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_72ibk")
+
+[node name="Panel bottom" type="Panel" parent="." unique_id=938864326]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -50.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_72ibk")
+
+[node name="Button exit" type="Button" parent="." unique_id=675417937]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 100.0
+offset_top = 25.0
+offset_right = 65.0
+offset_bottom = 92.0
+theme_override_colors/font_color = Color(0.8784314, 0.59607846, 0.18431373, 1)
+theme_override_colors/font_pressed_color = Color(0.69014704, 0.4582227, 0.1055064, 1)
+theme_override_colors/font_hover_color = Color(0.93402493, 0.6453114, 0.25071108, 1)
+theme_override_fonts/font = ExtResource("1_ci552")
+theme_override_font_sizes/font_size = 92
+theme_override_styles/normal = SubResource("StyleBoxFlat_50phg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_chmrd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2by0i")
+text = "M"
+
+[node name="Label" type="Label" parent="." unique_id=2109645322]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -250.0
+offset_right = 200.0
+offset_bottom = -150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.7204674, 0.7204675, 0.7204674, 1)
+theme_override_fonts/font = ExtResource("3_chmrd")
+theme_override_font_sizes/font_size = 64
+text = "How to Play:"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=1629817756]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -120.0
+offset_right = 300.0
+offset_bottom = 280.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.8784314, 0.59607846, 0.18431373, 1)
+theme_override_fonts/font = ExtResource("3_chmrd")
+theme_override_font_sizes/font_size = 32
+text = "Roll the die to Progress towards the goal (500) and
+earn Money equal to the number you roll.
+
+But, roll a 1 and your progress gets WIPED.
+
+Roll the same number twice in a row to start a MATCH STREAK, each
+roll in the streak earns bonus Money. The streak ends if you roll a 1,
+or roll a different number.
+
+Upgrade your Dice, earn Money, and get Gambling!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Button exit" to="." method="_on_button_exit_pressed"]

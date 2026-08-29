@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://difhi4uk53a76"]
+
+[ext_resource type="Script" uid="uid://bdeucks5um3m5" path="res://scripts/splash.gd" id="1_4rrho"]
+[ext_resource type="FontFile" uid="uid://de3xsvnnj3o4l" path="res://assets/Fonts/fredoka-one.one-regular.ttf" id="1_10vqf"]
+[ext_resource type="Script" uid="uid://c6v7cjfulgm13" path="res://scripts/label_splash.gd" id="2_4rrho"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5svwm"]
+bg_color = Color(0.124202676, 0.071293525, 0.030031344, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+shadow_size = 10
+
+[node name="splash" type="CanvasLayer" unique_id=1343261515]
+script = ExtResource("1_4rrho")
+
+[node name="SplashLabel" type="Label" parent="." unique_id=1725502856]
+z_index = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = 30.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.9079417, 0.9079417, 0.90794164, 1)
+theme_override_fonts/font = ExtResource("1_10vqf")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_5svwm")
+text = "splash"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_4rrho")

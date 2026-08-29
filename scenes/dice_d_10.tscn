@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://dxuoc3j835h2k"]
+
+[ext_resource type="Script" uid="uid://d2jsxl0opccon" path="res://scripts/dice.gd" id="1_6jfeh"]
+[ext_resource type="Texture2D" uid="uid://774ae87smuvb" path="res://assets/Dice/d10/d10_red_1.png" id="1_xyptw"]
+[ext_resource type="Texture2D" uid="uid://bbp3ugqk513r4" path="res://assets/Dice/d10/d10_red_2.png" id="2_6jfeh"]
+[ext_resource type="Texture2D" uid="uid://bqcbneo454wun" path="res://assets/Dice/d10/d10_red_3.png" id="3_ea0bb"]
+[ext_resource type="Texture2D" uid="uid://8bwwcr6hsqnk" path="res://assets/Dice/d10/d10_red_4.png" id="4_0rp53"]
+[ext_resource type="Texture2D" uid="uid://jsxwjeel5r3m" path="res://assets/Dice/d10/d10_red_5.png" id="5_178it"]
+[ext_resource type="Texture2D" uid="uid://oex6g2ir1eag" path="res://assets/Dice/d10/d10_red_6.png" id="6_x8nar"]
+[ext_resource type="Texture2D" uid="uid://di56a33m7gn22" path="res://assets/Dice/d10/d10_red_7.png" id="7_ubdup"]
+[ext_resource type="Texture2D" uid="uid://plqjxakv7otc" path="res://assets/Dice/d10/d10_red_8.png" id="8_7ie6i"]
+[ext_resource type="Texture2D" uid="uid://cmb6wbofp6u26" path="res://assets/Dice/d10/d10_red_9.png" id="9_vt4pq"]
+[ext_resource type="Texture2D" uid="uid://c53e012gb70yp" path="res://assets/Dice/d10/d10_red_10.png" id="10_aqh21"]
+[ext_resource type="AudioStream" uid="uid://dy3efjd07kfcr" path="res://assets/Audio/tick-2.mp3" id="12_178it"]
+[ext_resource type="AudioStream" uid="uid://blgmdcok20y64" path="res://assets/Audio/pop-win.mp3" id="13_x8nar"]
+[ext_resource type="AudioStream" uid="uid://cmpsct1g7bb0n" path="res://assets/Audio/fail-sound-effect.mp3" id="14_ubdup"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jbpan"]
+radius = 135.0
+
+[node name="Dice d10" type="StaticBody2D" unique_id=936442920 groups=["DiceGroup"]]
+input_pickable = true
+script = ExtResource("1_6jfeh")
+
+[node name="Faces" type="Node2D" parent="." unique_id=1808049567]
+
+[node name="1" type="Sprite2D" parent="Faces" unique_id=1515017070]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_xyptw")
+
+[node name="2" type="Sprite2D" parent="Faces" unique_id=1297457327]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_6jfeh")
+
+[node name="3" type="Sprite2D" parent="Faces" unique_id=1849658542]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_ea0bb")
+
+[node name="4" type="Sprite2D" parent="Faces" unique_id=1990347036]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_0rp53")
+
+[node name="5" type="Sprite2D" parent="Faces" unique_id=764475814]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_178it")
+
+[node name="6" type="Sprite2D" parent="Faces" unique_id=1614902169]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_x8nar")
+
+[node name="7" type="Sprite2D" parent="Faces" unique_id=1279867203]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("7_ubdup")
+
+[node name="8" type="Sprite2D" parent="Faces" unique_id=992710129]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("8_7ie6i")
+
+[node name="9" type="Sprite2D" parent="Faces" unique_id=305196152]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("9_vt4pq")
+
+[node name="10" type="Sprite2D" parent="Faces" unique_id=2058333016]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("10_aqh21")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=207496513]
+shape = SubResource("CircleShape2D_jbpan")
+
+[node name="Audio-tick" type="AudioStreamPlayer" parent="." unique_id=1037977468]
+stream = ExtResource("12_178it")
+
+[node name="Audio-roll" type="AudioStreamPlayer" parent="." unique_id=1970070009]
+stream = ExtResource("13_x8nar")
+volume_db = -5.0
+
+[node name="Audio-bust" type="AudioStreamPlayer" parent="." unique_id=1954623963]
+stream = ExtResource("14_ubdup")
+
+[node name="d10 shadow" type="Sprite2D" parent="." unique_id=903387630]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(5, 5)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("10_aqh21")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
