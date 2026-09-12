@@ -169,6 +169,12 @@ corner_radius_bottom_left = 16
 shadow_size = 3
 shadow_offset = Vector2(0, 1)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_trceg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jkv2x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a8y0u"]
+
 [node name="Main" type="Control" unique_id=1579343137]
 layout_mode = 3
 anchors_preset = 15
@@ -438,6 +444,29 @@ theme_override_colors/font_color = Color(0.7204674, 0.7204675, 0.7204674, 1)
 theme_override_fonts/font = ExtResource("9_85g3d")
 theme_override_font_sizes/font_size = 32
 text = "UPGRADES"
+
+[node name="Button cont" type="Button" parent="." unique_id=1100714019]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -130.0
+offset_right = 100.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.6378439, 0.63784295, 0.63784313, 1)
+theme_override_colors/font_pressed_color = Color(0.6955031, 0.6955032, 0.6955029, 1)
+theme_override_colors/font_hover_color = Color(0.8175215, 0.81752115, 0.81752115, 1)
+theme_override_fonts/font = ExtResource("9_85g3d")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_trceg")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_jkv2x")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_a8y0u")
+text = "Keep Playing?"
 
 [node name="Sprite win" type="Sprite2D" parent="." unique_id=887333110]
 z_index = 2

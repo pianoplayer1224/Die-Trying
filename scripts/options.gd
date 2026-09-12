@@ -48,7 +48,7 @@ func _on_button_debug_pressed() -> void:
 
 	if _debug_press_count >= 10:
 		audio_money.play()
-		GameState.money += 18530
+		GameState.money += 28530
 		_debug_reward_given = true
 
 

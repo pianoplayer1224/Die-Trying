@@ -17,7 +17,7 @@ const DICE_TIERS: Array = [
 	["d8", 8, 200],
 	["d10", 10, 500],
 	["d12", 12, 1200],
-	["d20", 20, 4000],
+	["d20", 20, 6000],
 ]
 
 const SPEED_LEVELS: Array = [
@@ -30,6 +30,7 @@ const SPEED_LEVELS: Array = [
 	[1.0, 1000],
 	[0.8, 2000],
 	[0.6, 5000],
+	[0.4, 8000],
 ]
 
 const MONEY_MULT_LEVELS: Array = [
@@ -45,10 +46,10 @@ const MONEY_MULT_LEVELS: Array = [
 const MATCH_MULT_LEVELS: Array = [
 	# [starting multiplier on a double, cost]
 	[2.0, 0],
-	[2.5, 20],
-	[3.0, 50],
-	[3.5, 100],
-	[4.0, 250],
+	[3.0, 20],
+	[4.0, 50],
+	[5.0, 100],
+	[6.0, 250],
 ]
 
 const GOAL := 500
@@ -70,6 +71,7 @@ const BUST_VALUE := 1
 @onready var audio_buy: AudioStreamPlayer = $"Audio-buy"
 @onready var sprite_win: Sprite2D = $"Sprite win"
 @onready var audio_win: AudioStreamPlayer = $"Audio-win"
+@onready var button_cont: Button = $"Button cont"
 # The splash label lives in the "Splash" autoload (a CanvasLayer),
 # not in this scene — it persists across menu <-> game transitions.
 @onready var splash_label: SplashLabel = Splash.label
@@ -92,6 +94,7 @@ func _ready() -> void:
 	button_upg_speed.pressed.connect(buy_speed_upgrade)
 	button_upg_money.pressed.connect(buy_money_mult_upgrade)
 	button_upg_match.pressed.connect(buy_match_mult_upgrade)
+	button_cont.pressed.connect(_on_button_cont_pressed)
 
 	# Drive the bar's range from GOAL so the constant stays the
 	# single source of truth (overrides whatever is set in the editor).
@@ -103,8 +106,10 @@ func _ready() -> void:
 	label_add_money.hide()
 	label_match.hide()
 
-	# Win sprite stays hidden until the goal is reached.
+	# Win sprite (and the "Keep Playing?" offer under it) stay hidden
+	# until the goal is reached.
 	sprite_win.hide()
+	button_cont.hide()
 
 	# Route this scene's sound effects to the shared SFX bus so the
 	# options toggle mutes them too.
@@ -126,17 +131,21 @@ func _ready() -> void:
 		"playtime": GameState.playtime,
 	})
 
-	# Returning to an already-won game: restore the win state
-	# (sprite fully grown, die locked) without replaying the sequence.
-	if GameState.game_won:
+	# Returning to an already-won game that hasn't been continued:
+	# restore the win state (sprite fully grown, die locked, offer up)
+	# without replaying the sequence. Once continued, the win screen is
+	# gone for good and play is ordinary again.
+	if GameState.game_won and not GameState.endless:
 		_lock_input()
 		sprite_win.scale = Vector2(2.0, 2.0)
 		sprite_win.show()
+		button_cont.show()
 
 
-## Playtime accrues only while in this scene and stops after the win.
+## Playtime accrues only while in this scene. It stops on the win, and
+## resumes if the player chooses to keep playing.
 func _process(delta: float) -> void:
-	if GameState.game_won:
+	if GameState.game_won and not GameState.endless:
 		return
 	GameState.playtime += delta
 	splash_label.on_playtime_changed(GameState.playtime)
@@ -160,7 +169,7 @@ func _set_active_die() -> void:
 # CORE LOOP — reacting to a finished roll
 # =========================================================
 func _on_dice_roll_done(value: int) -> void:
-	if GameState.game_won:
+	if GameState.game_won and not GameState.endless:
 		return
 	var progress_before := GameState.progress   # to show "-X" on a bust
 	var won := _apply_roll(value)
@@ -183,21 +192,25 @@ func _on_dice_roll_done(value: int) -> void:
 		# TODO (UI): bust feedback — flash, shake, "BUST!" popup.
 		# (The die scene already plays the bust sound itself.)
 
-	if won:
+	# In endless mode _apply_roll() reports a "win" on every roll that
+	# leaves progress at or past GOAL, so the win only ever fires once.
+	if won and not GameState.endless:
 		GameState.game_won = true
 		_lock_input()
 		_play_win_sequence()
 
 
 ## Grow the win sprite from nothing to 2x over 3 seconds while the
-## win sound plays.
+## win sound plays, then offer to keep playing.
 func _play_win_sequence() -> void:
 	sprite_win.scale = Vector2.ZERO
 	sprite_win.show()
+	button_cont.hide()
 	audio_win.play()
 	var tw := create_tween()
 	tw.tween_property(sprite_win, "scale", Vector2(2.0, 2.0), 3.0) \
 		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	tw.tween_callback(button_cont.show)
 
 
 ## Per-roll transient feedback. Relies on state already updated by
@@ -267,8 +280,8 @@ func _apply_roll(value: int) -> bool:
 func _get_match_multiplier() -> float:
 	if GameState.match_length < 2:
 		return 1.0
-	var start := 2.0 + 0.5 * GameState.match_mult_level
-	var step := 1.0 + 0.5 * GameState.match_mult_level
+	var start := 2.0 + 1.0 * GameState.match_mult_level
+	var step := 1.0 + 1.0 * GameState.match_mult_level
 	return start + step * (GameState.match_length - 2)
 
 
@@ -397,6 +410,18 @@ func _set_table_button(button: Button, title: String, level: int,
 	button.text = "%s: %s ➜ %s  ($%d)" % [
 		title, fmt.call(table[level][0]), fmt.call(table[level + 1][0]), cost]
 	button.disabled = GameState.money < cost
+
+
+## "Keep Playing?" — clear the win screen and hand the die back. The win
+## itself is kept (GameState.game_won stays true), so it can't be won a
+## second time; the run just never ends.
+func _on_button_cont_pressed() -> void:
+	Sfx.click()
+	GameState.endless = true
+	button_cont.hide()
+	sprite_win.hide()
+	_set_active_die()   # re-enables input_pickable on the current die
+	_update_ui()
 
 
 func _lock_input() -> void:

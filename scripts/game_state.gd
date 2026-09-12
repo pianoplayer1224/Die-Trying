@@ -22,6 +22,10 @@ var match_length := 0
 var last_earnings := 0
 
 var game_won := false
+## Set when the player takes the "Keep Playing?" offer after the win.
+## The win stays recorded (game_won), but the rules stop gating on it
+## so the run continues forever.
+var endless := false
 
 # Lifetime stats (feed the splash label milestones; may later feed a
 # stats screen).
@@ -47,6 +51,7 @@ func reset() -> void:
 	match_length = 0
 	last_earnings = 0
 	game_won = false
+	endless = false
 	total_rolls = 0
 	bust_count = 0
 	total_earned = 0

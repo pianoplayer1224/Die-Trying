@@ -52,12 +52,25 @@ extends Label
 	"Failure is just progress with extra steps.",
 	"You miss 100% of the rolls you don't take.",
 	"Optimism is not a valid strategy.",
+	"Simulation for the Nation!",
+	"Remember the 3-2-1 Rule for File Backups!",
 	"seal",
+	"Visit sealnet.xyz",
+	"FILTERED.",
+	"Mark 83 1,000 lb ballute-type retarded bomb",
+	"Decisions, decisions...",
+	"sudo rm -rf --no-preserve-root",
+	"FROGE BOGEUS",
 	"7EAM!",
+	"1f986_duck",
 	"🦆",
+	"Squawk 7700, Contact Guard on 121.5",
+	"You are meant to be doing Maths, aren't you?",
+	"Imagine having a Fancy Ass Calculator. I bet you don't even use it for Graphing.'",
+	"Get the FX-CG100 Graphing Calculator from casio.com for only £139.99! Never mind, it's sold out.",
 	"'It is mathematically proven that on average your partner has more partners than you'",
 	"'We are two parts of a song. He is the music, and i am the words' -From some book",
-	"'If god would have wanted you to win he wouldn’t have created me'",
+	"'If god would have wanted you to win he wouldn't have created me'",
 ]
 
 # --- Milestones (threshold -> message; each fires once, ever) ----------------
@@ -96,7 +109,7 @@ extends Label
 	2000: "$2,000 spent. All purchases are final.",
 	5000: "$5,000 spent. No refunds!",
 	10000: "$10,000 spent. Money can, in fact, buy happiness.",
-	18530: "You really just bought everything in the store, didn't you?"
+	28530: "You really just bought everything in the store, didn't you?"
 }
 
 ## Keys are SECONDS of playtime.
