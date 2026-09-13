@@ -52,7 +52,7 @@ const MATCH_MULT_LEVELS: Array = [
 	[6.0, 250],
 ]
 
-const GOAL := 500
+const GOAL := 2
 const BUST_VALUE := 1
 
 # =========================================================

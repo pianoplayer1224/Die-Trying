@@ -26,6 +26,7 @@ GameState="*uid://ck5jdjxubeatn"
 MusicPlayer="*uid://df7ijpoxofnu5"
 Splash="*uid://difhi4uk53a76"
 _mcp_game_helper="*res://addons/godot_ai/runtime/game_helper.gd"
+SaveCode="*res://scripts/save_code.gd"
 
 [display]
 

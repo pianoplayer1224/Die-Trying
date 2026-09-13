@@ -52,6 +52,8 @@ func _on_button_debug_pressed() -> void:
 		_debug_reward_given = true
 
 
+## "Save Options" — the save code screen, which is also where resetting
+## the game now lives.
 func _on_button_reset_pressed() -> void:
 	Sfx.click()
-	GameState.reset()
+	get_tree().change_scene_to_file("res://scenes/save.tscn")
